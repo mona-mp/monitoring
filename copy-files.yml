@@ -1,0 +1,16 @@
+---
+- name: make monitoring directory
+  file:
+    path: /opt/monitoring
+    state: directory
+      
+
+- name: copy  config files 
+  copy:
+    src: "{{ item }}"
+    dest: /opt/monitoring 
+  with_items:
+    - prometheus
+    - alertmanager
+    - grafana  
+    - docker-compose.yml

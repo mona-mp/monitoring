@@ -1,0 +1,18 @@
+route:
+  receiver: 'mail'
+  repeat_interval: 4h
+  group_by: [ myserver ]
+
+
+receivers:
+  - name: 'mail'
+    email_configs:
+            # - send_resolved: true      
+      - to: mona@gmail.com
+        from: mona2@gmail.com
+        smarthost: smtp.gmail.com:587
+        auth_username: 'mona2@gmail.com'
+        auth_identity: 'mona2.com'
+        #get auth_password from gmail
+        auth_password: ""
+        send_resolved: true

@@ -1,0 +1,15 @@
+- name: monitoring
+  hosts: monitoring
+  become: yes
+  
+  tasks:
+    - name: 
+      include:
+        install-docker.yml      
+         
+    - name:
+      include: 
+        copy-files.yml
+       
+    - import_tasks: docker-compose-up.yml
+

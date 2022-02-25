@@ -1,0 +1,6 @@
+groups:
+  - name: myserver
+    rules:
+      - alert: InstanceDown 
+        expr: up{job="node-exporter"} < 1 
+        for: 1m 
