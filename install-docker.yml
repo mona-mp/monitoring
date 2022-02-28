@@ -3,7 +3,7 @@
     - name: Update apt and install packages
       apt:
         name: "{{item}}"      
-        update_cache: "yes"
+        # update_cache: "yes"
       loop:
         - apt-transport-https
         - ca-certificates
@@ -29,14 +29,11 @@
         repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
         state: present
 
-    - name: Update apt packages
-      apt:
-        update_cache: "yes"
-
     - name: Install Docker
       apt:
         name: "docker-ce"
         state: present
+        update_cache: "yes"
 
     - name: install docker compose    
       get_url:
